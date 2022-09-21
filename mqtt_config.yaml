@@ -1,0 +1,31 @@
+
+# based on https://tyzbit.blog/connecting-a-dht-22-sensor-to-home-assistant
+
+mqtt:
+  host: homeassistant.local # update this to your MQTT broker's IP
+  topic_prefix: pizerow
+  status_payload_running: available
+  status_payload_stopped: unavailable
+  status_payload_dead: unavailable
+  user: mqtt-client
+  password: mqtt-client
+  ha_discovery:
+    enabled: yes
+
+sensor_modules:
+- name: dht22_sensor
+  module: dht22
+  type: dht22
+  pin: 18 # this may change if you add additional sensors or don't use pin 4 from above
+
+sensor_inputs:
+- name: pizerow_temperature
+  module: dht22_sensor
+  digits: 2
+  interval: 5
+  type: temperature
+- name: pizerow_humidity
+  module: dht22_sensor
+  digits: 2
+  interval: 5
+  type: humidity
