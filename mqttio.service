@@ -1,0 +1,16 @@
+[Unit]
+Description=MQTT-IO
+After=network.target
+Wants=network-online.target
+
+[Service]
+Restart=always
+Type=simple
+ExecStart=/usr/bin/python3 -m mqtt_io /home/pi/dht_homeassistant_sensor/mqtt-config.yaml
+User=pi
+Environment=
+
+[Install]
+WantedBy=multi-user.target
+
+
