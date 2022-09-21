@@ -19,12 +19,12 @@ sensor_modules:
   pin: 18 # this may change if you add additional sensors or don't use pin 4 from above
 
 sensor_inputs:
-- name: pizerow_temperature
+- name: temperature
   module: dht22_sensor
   digits: 2
   interval: 5
   type: temperature
-- name: pizerow_humidity
+- name: humidity
   module: dht22_sensor
   digits: 2
   interval: 5
